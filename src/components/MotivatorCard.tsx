@@ -8,7 +8,6 @@ interface Props {
   showImpact?: boolean
   onImpact?: (id: MotivatorItem['id'], impact: ImpactLevel) => void
   onInfo?: (id: MotivatorId) => void
-  dragHandleProps?: React.HTMLAttributes<HTMLDivElement>
   isDragging?: boolean
 }
 
@@ -23,7 +22,9 @@ const impactBg: Record<ImpactLevel, string> = {
   neutral: 'bg-gray-100 text-gray-500',
 }
 
-export default function MotivatorCard({ item, showRank, showImpact, onImpact, onInfo, dragHandleProps, isDragging }: Props) {
+export default function MotivatorCard({
+  item, showRank, showImpact, onImpact, onInfo, isDragging,
+}: Props) {
   const { t } = useTranslation()
   const meta = getMotivatorMeta(item.id)
 
@@ -31,28 +32,47 @@ export default function MotivatorCard({ item, showRank, showImpact, onImpact, on
     <div
       className={`relative flex flex-col bg-white rounded-xl border-l-4 ${meta.borderColor} card-shadow select-none
         ${isDragging ? 'opacity-50 card-shadow-lg rotate-2' : ''}
-        ${showImpact && item.impact !== 'neutral' ? (item.impact === 'positive' ? 'ring-2 ring-green-400' : 'ring-2 ring-red-400') : ''}
+        ${showImpact && item.impact !== 'neutral'
+          ? item.impact === 'positive' ? 'ring-2 ring-green-400' : 'ring-2 ring-red-400'
+          : ''}
         w-28 min-w-[7rem] transition-all`}
     >
-      {/* Drag handle / rank badge */}
-      <div
-        className={`flex items-center justify-between px-2 pt-2 ${dragHandleProps ? 'drag-handle' : ''}`}
-        {...dragHandleProps}
-      >
+      {/* Emoji + rank row — drag handle area */}
+      <div className="flex items-center justify-between px-2 pt-2">
         {showRank && (
           <span className={`text-xs font-bold ${meta.textColor}`}>#{item.rank}</span>
         )}
-        <span className="text-xl ml-auto">{meta.emoji}</span>
+        <span className={`text-xl ${showRank ? '' : 'ml-auto'}`}>{meta.emoji}</span>
       </div>
 
-      <div className="px-2 pb-2 flex-1 flex flex-col gap-1">
-        <p className={`text-xs font-semibold ${meta.textColor} leading-tight`}>
-          {t(`motivators.${item.id}.name`)}
-        </p>
-        <p className="text-[10px] text-gray-400 leading-tight line-clamp-2">
-          {t(`motivators.${item.id}.desc`)}
-        </p>
-      </div>
+      {/* Name + desc — tap target for info when onInfo provided */}
+      {onInfo ? (
+        <button
+          onPointerDown={e => e.stopPropagation()}
+          onClick={() => onInfo(item.id)}
+          className={`px-2 pb-2 flex-1 flex flex-col gap-0.5 text-left
+            rounded-b-none hover:bg-gray-50 active:bg-gray-100 transition-colors
+            ${showImpact ? '' : 'rounded-b-xl'}`}
+          title={t('common.learnMore')}
+        >
+          <p className={`text-xs font-semibold ${meta.textColor} leading-tight flex items-center gap-0.5`}>
+            {t(`motivators.${item.id}.name`)}
+            <span className="text-[8px] opacity-40">ⓘ</span>
+          </p>
+          <p className="text-[10px] text-gray-400 leading-tight line-clamp-2">
+            {t(`motivators.${item.id}.desc`)}
+          </p>
+        </button>
+      ) : (
+        <div className="px-2 pb-2 flex-1 flex flex-col gap-0.5">
+          <p className={`text-xs font-semibold ${meta.textColor} leading-tight`}>
+            {t(`motivators.${item.id}.name`)}
+          </p>
+          <p className="text-[10px] text-gray-400 leading-tight line-clamp-2">
+            {t(`motivators.${item.id}.desc`)}
+          </p>
+        </div>
+      )}
 
       {/* Impact controls */}
       {showImpact && onImpact && (
@@ -60,6 +80,7 @@ export default function MotivatorCard({ item, showRank, showImpact, onImpact, on
           {(['positive', 'neutral', 'negative'] as ImpactLevel[]).map(lvl => (
             <button
               key={lvl}
+              onPointerDown={e => e.stopPropagation()}
               onClick={() => onImpact(item.id, lvl)}
               title={t(`assess.${lvl}`)}
               className={`flex-1 py-1 text-xs font-bold transition-colors
@@ -69,31 +90,6 @@ export default function MotivatorCard({ item, showRank, showImpact, onImpact, on
             </button>
           ))}
         </div>
-      )}
-
-      {/* Info button — bottom strip when no impact controls */}
-      {!showImpact && onInfo && (
-        <div className="border-t border-gray-100">
-          <button
-            onClick={(e) => { e.stopPropagation(); onInfo(item.id) }}
-            title={t('common.learnMore')}
-            className={`w-full py-1 text-[10px] ${meta.textColor} opacity-50 hover:opacity-100 transition-opacity`}
-          >
-            ℹ︎
-          </button>
-        </div>
-      )}
-
-      {/* Info button overlay when impact controls are visible */}
-      {showImpact && onInfo && (
-        <button
-          onClick={(e) => { e.stopPropagation(); onInfo(item.id) }}
-          title={t('common.learnMore')}
-          className={`absolute top-1 left-1 w-4 h-4 text-[9px] rounded-full flex items-center justify-center
-            ${meta.textColor} opacity-30 hover:opacity-80 transition-opacity`}
-        >
-          ℹ
-        </button>
       )}
     </div>
   )

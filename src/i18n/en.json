@@ -89,70 +89,70 @@
   "motivators": {
     "curiosity": {
       "name": "Curiosity",
-      "desc": "I am motivated by learning and exploring new ideas.",
+      "desc": "Exploring & learning",
       "detail": "Curiosity is the desire to investigate and think about the world around you. People driven by curiosity want to explore ideas, learn new things, and ask 'why'. They are energized by problems without obvious answers and thrive in environments where experimentation is encouraged.",
       "example": "Seeks out challenges outside their comfort zone, reads broadly across disciplines, and experiments with new approaches even when existing ones work fine.",
       "reflection": "When was the last time you learned something at work that genuinely excited you? Does your current role give you enough room to explore?"
     },
     "honor": {
       "name": "Honor",
-      "desc": "I am motivated by upholding my personal values.",
+      "desc": "Values & integrity",
       "detail": "Honor is the need to feel proud of your work and to act in accordance with your personal values. People motivated by honor care deeply about integrity — they need their work to reflect who they are. Assignments that conflict with their moral code feel draining, even when the compensation is good.",
       "example": "Declines tasks that conflict with their values, speaks up about ethical concerns, and takes pride in doing things right even when cutting corners would go unnoticed.",
       "reflection": "Does your current work reflect who you are and what you believe in? Are there parts of your role that feel at odds with your values?"
     },
     "acceptance": {
       "name": "Acceptance",
-      "desc": "I am motivated by the approval of those around me.",
+      "desc": "Approval & belonging",
       "detail": "Acceptance is the need to be approved of and valued by the people around you. People driven by acceptance are highly sensitive to how their contributions are perceived and are deeply motivated by belonging. They give their best when they feel genuinely included and appreciated.",
       "example": "Checks in frequently for feedback, works hard to fit into team culture, and is visibly energized by praise and visibly deflated by criticism.",
       "reflection": "Do you feel genuinely valued and accepted by your team? Do you know that your contributions are seen and appreciated?"
     },
     "mastery": {
       "name": "Mastery",
-      "desc": "I am motivated by improving my competence and skills.",
+      "desc": "Skill growth & excellence",
       "detail": "Mastery is the drive to improve your skills and become excellent at work that matters to you. People motivated by mastery are energized by growth and frustrated by stagnation. Repetitive work with no learning curve quickly becomes demotivating, no matter how comfortable the environment.",
       "example": "Seeks stretch assignments, invests personal time in skill development, is energized by technical challenges, and is visibly uncomfortable doing work they feel they have already outgrown.",
       "reflection": "Are you getting meaningfully better at something important through your current work? Do you feel like you are growing, or standing still?"
     },
     "power": {
       "name": "Power",
-      "desc": "I am motivated by having influence over what happens.",
+      "desc": "Influence & agency",
       "detail": "Power is the need to have influence over the world around you — to lead, decide, and shape outcomes. This is not about dominance; it is about agency. People motivated by power want their voice to matter and their decisions to count. Being excluded from key decisions is deeply frustrating for them.",
       "example": "Volunteers to lead initiatives, actively engages in decision-making, brings strong opinions to discussions, and is frustrated when their input is ignored or overridden.",
       "reflection": "Do you have enough influence over the things that affect your work and your team? Do people listen and act when you speak?"
     },
     "freedom": {
       "name": "Freedom",
-      "desc": "I am motivated by independence and self-direction.",
+      "desc": "Autonomy & independence",
       "detail": "Freedom is the need for independence and autonomy in how you work. People driven by freedom need space to define their own approach, schedule, and method. Micromanagement and rigid processes are deeply draining for them; autonomy and trust are energizing.",
       "example": "Prefers self-directed work, defines their own process for reaching goals, and is uncomfortable with prescribed workflows or heavy oversight.",
       "reflection": "Do you have enough freedom to work in the way that suits you best? Or do you feel over-managed and constrained?"
     },
     "relatedness": {
       "name": "Relatedness",
-      "desc": "I am motivated by close social bonds and teamwork.",
+      "desc": "Connection & teamwork",
       "detail": "Relatedness is the need for social connections and a sense of belonging at work. People driven by relatedness are energized by their relationships with colleagues. Isolation — whether physical, remote, or social — is one of the most demotivating experiences for them.",
       "example": "Initiates social contact, checks in on teammates, is energized by collaboration and pair work, and becomes noticeably less engaged during periods of isolation.",
       "reflection": "Do you feel genuinely connected to the people you work with? Is there enough human warmth and collaboration in your daily work?"
     },
     "order": {
       "name": "Order",
-      "desc": "I am motivated by stability and a predictable environment.",
+      "desc": "Stability & structure",
       "detail": "Order is the need for a stable, predictable, and well-structured environment. People driven by order prefer clear rules, consistent processes, and defined responsibilities. Chaos, ambiguity, and constant change are draining; clarity and structure are deeply reassuring.",
       "example": "Creates documentation and checklists, prefers clear role definitions, is uncomfortable with undefined processes, and becomes anxious in highly ambiguous or rapidly changing environments.",
       "reflection": "Is your work environment stable and predictable enough for you to do your best work? Or is there too much chaos and uncertainty?"
     },
     "goal": {
       "name": "Goal",
-      "desc": "I am motivated by a higher purpose and sense of meaning.",
+      "desc": "Purpose & meaning",
       "detail": "Goal is the need for a clear sense of purpose — a higher meaning that makes work feel worthwhile beyond the immediate task. People driven by goal need to understand why their work matters. When that connection to purpose is lost, even interesting work can feel hollow.",
       "example": "Connects daily work to the bigger picture, asks about organizational strategy and direction, is motivated by knowing their concrete impact, and becomes disengaged when work feels arbitrary or meaningless.",
       "reflection": "Do you have a clear sense of purpose in your work? Does it feel meaningful beyond the immediate deliverable — do you know why it matters?"
     },
     "status": {
       "name": "Status",
-      "desc": "I am motivated by recognition and a good reputation.",
+      "desc": "Recognition & reputation",
       "detail": "Status is the need for a respected position and recognition from others. People driven by status care about their professional standing — titles, seniority markers, and public recognition matter to them. This is a legitimate human need: to be seen as capable, respected, and professionally progressed.",
       "example": "Is motivated by promotions, titles, and public acknowledgment; tracks career progression carefully; and wants their expertise and experience to be visibly recognized by peers and leadership.",
       "reflection": "Do you feel appropriately recognized and respected for your professional standing? Is your expertise and contribution visible to the people who matter?"

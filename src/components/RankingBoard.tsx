@@ -27,13 +27,14 @@ function SortableCard({ item, onInfo }: { item: MotivatorItem; onInfo?: (id: Mot
     <div
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition }}
-      className="touch-none"
+      className="touch-none cursor-grab active:cursor-grabbing"
+      {...attributes}
+      {...listeners}
     >
       <MotivatorCard
         item={item}
         showRank
         isDragging={isDragging}
-        dragHandleProps={{ ...attributes, ...listeners }}
         onInfo={onInfo}
       />
     </div>
