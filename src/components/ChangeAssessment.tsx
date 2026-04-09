@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import type { MotivatorItem, ImpactLevel } from '../types'
+import type { MotivatorItem, ImpactLevel, MotivatorId } from '../types'
 import MotivatorCard from './MotivatorCard'
 
 interface Props {
@@ -10,9 +10,10 @@ interface Props {
   onMotivatorChange: (items: MotivatorItem[]) => void
   onNext: () => void
   onBack: () => void
+  onInfo?: (id: MotivatorId) => void
 }
 
-export default function ChangeAssessment({ motivators, change, onChangeText, onMotivatorChange, onNext, onBack }: Props) {
+export default function ChangeAssessment({ motivators, change, onChangeText, onMotivatorChange, onNext, onBack, onInfo }: Props) {
   const { t } = useTranslation()
   const [phase, setPhase] = useState<'describe' | 'assess'>(change ? 'assess' : 'describe')
 
@@ -63,7 +64,7 @@ export default function ChangeAssessment({ motivators, change, onChangeText, onM
           <div className="bg-white rounded-2xl p-4 card-shadow overflow-x-auto">
             <div className="flex gap-2" style={{ minWidth: 'max-content' }}>
               {motivators.map(item => (
-                <MotivatorCard key={item.id} item={item} showRank showImpact onImpact={handleImpact} />
+                <MotivatorCard key={item.id} item={item} showRank showImpact onImpact={handleImpact} onInfo={onInfo} />
               ))}
             </div>
           </div>

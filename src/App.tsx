@@ -1,18 +1,20 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import type { Screen, MotivatorItem } from './types'
+import type { Screen, MotivatorItem, MotivatorId } from './types'
 import { defaultMotivatorItems } from './data/motivators'
 import HomeScreen from './components/HomeScreen'
 import RankingBoard from './components/RankingBoard'
 import ChangeAssessment from './components/ChangeAssessment'
 import ResultsView from './components/ResultsView'
 import TeamSession from './components/TeamSession'
+import MotivatorInfo from './components/MotivatorInfo'
 
 function App() {
   const { t, i18n } = useTranslation()
   const [screen, setScreen] = useState<Screen>('home')
   const [motivators, setMotivators] = useState<MotivatorItem[]>(defaultMotivatorItems())
   const [change, setChange] = useState('')
+  const [infoMotivator, setInfoMotivator] = useState<MotivatorId | null>(null)
 
   const reset = () => {
     setMotivators(defaultMotivatorItems())
@@ -53,6 +55,7 @@ function App() {
             onNext={() => setScreen('solo-assess')}
             onSkip={() => setScreen('solo-results')}
             onBack={() => setScreen('home')}
+            onInfo={setInfoMotivator}
           />
         )}
         {screen === 'solo-assess' && (
@@ -63,10 +66,16 @@ function App() {
             onMotivatorChange={setMotivators}
             onNext={() => setScreen('solo-results')}
             onBack={() => setScreen('solo-rank')}
+            onInfo={setInfoMotivator}
           />
         )}
         {screen === 'solo-results' && (
-          <ResultsView motivators={motivators} change={change} onReset={reset} />
+          <ResultsView
+            motivators={motivators}
+            change={change}
+            onReset={reset}
+            onInfo={setInfoMotivator}
+          />
         )}
         {isTeamScreen && (
           <TeamSession
@@ -80,6 +89,14 @@ function App() {
           />
         )}
       </main>
+
+      {/* Motivator info drawer — rendered at root so it overlays everything */}
+      {infoMotivator && (
+        <MotivatorInfo
+          id={infoMotivator}
+          onClose={() => setInfoMotivator(null)}
+        />
+      )}
     </div>
   )
 }

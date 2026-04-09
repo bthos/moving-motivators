@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import { getMotivatorMeta } from '../data/motivators'
-import type { MotivatorItem, ImpactLevel } from '../types'
+import type { MotivatorItem, ImpactLevel, MotivatorId } from '../types'
 
 interface Props {
   item: MotivatorItem
   showRank?: boolean
   showImpact?: boolean
   onImpact?: (id: MotivatorItem['id'], impact: ImpactLevel) => void
+  onInfo?: (id: MotivatorId) => void
   dragHandleProps?: React.HTMLAttributes<HTMLDivElement>
   isDragging?: boolean
 }
@@ -22,7 +23,7 @@ const impactBg: Record<ImpactLevel, string> = {
   neutral: 'bg-gray-100 text-gray-500',
 }
 
-export default function MotivatorCard({ item, showRank, showImpact, onImpact, dragHandleProps, isDragging }: Props) {
+export default function MotivatorCard({ item, showRank, showImpact, onImpact, onInfo, dragHandleProps, isDragging }: Props) {
   const { t } = useTranslation()
   const meta = getMotivatorMeta(item.id)
 
@@ -68,6 +69,31 @@ export default function MotivatorCard({ item, showRank, showImpact, onImpact, dr
             </button>
           ))}
         </div>
+      )}
+
+      {/* Info button — bottom strip when no impact controls */}
+      {!showImpact && onInfo && (
+        <div className="border-t border-gray-100">
+          <button
+            onClick={(e) => { e.stopPropagation(); onInfo(item.id) }}
+            title={t('common.learnMore')}
+            className={`w-full py-1 text-[10px] ${meta.textColor} opacity-50 hover:opacity-100 transition-opacity`}
+          >
+            ℹ︎
+          </button>
+        </div>
+      )}
+
+      {/* Info button overlay when impact controls are visible */}
+      {showImpact && onInfo && (
+        <button
+          onClick={(e) => { e.stopPropagation(); onInfo(item.id) }}
+          title={t('common.learnMore')}
+          className={`absolute top-1 left-1 w-4 h-4 text-[9px] rounded-full flex items-center justify-center
+            ${meta.textColor} opacity-30 hover:opacity-80 transition-opacity`}
+        >
+          ℹ
+        </button>
       )}
     </div>
   )

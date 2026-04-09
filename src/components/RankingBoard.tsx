@@ -8,7 +8,7 @@ import {
   horizontalListSortingStrategy, arrayMove,
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import type { MotivatorItem } from '../types'
+import type { MotivatorItem, MotivatorId } from '../types'
 import MotivatorCard from './MotivatorCard'
 
 interface Props {
@@ -17,9 +17,10 @@ interface Props {
   onNext: () => void
   onSkip: () => void
   onBack: () => void
+  onInfo?: (id: MotivatorId) => void
 }
 
-function SortableCard({ item }: { item: MotivatorItem }) {
+function SortableCard({ item, onInfo }: { item: MotivatorItem; onInfo?: (id: MotivatorId) => void }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } =
     useSortable({ id: item.id })
   return (
@@ -33,12 +34,13 @@ function SortableCard({ item }: { item: MotivatorItem }) {
         showRank
         isDragging={isDragging}
         dragHandleProps={{ ...attributes, ...listeners }}
+        onInfo={onInfo}
       />
     </div>
   )
 }
 
-export default function RankingBoard({ motivators, onChange, onNext, onSkip, onBack }: Props) {
+export default function RankingBoard({ motivators, onChange, onNext, onSkip, onBack, onInfo }: Props) {
   const { t } = useTranslation()
 
   const sensors = useSensors(
@@ -71,7 +73,7 @@ export default function RankingBoard({ motivators, onChange, onNext, onSkip, onB
           <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
             <SortableContext items={motivators.map(m => m.id)} strategy={horizontalListSortingStrategy}>
               <div className="flex gap-2">
-                {motivators.map(item => <SortableCard key={item.id} item={item} />)}
+                {motivators.map(item => <SortableCard key={item.id} item={item} onInfo={onInfo} />)}
               </div>
             </SortableContext>
           </DndContext>

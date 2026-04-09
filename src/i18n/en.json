@@ -11,11 +11,19 @@
     "teamDesc": "Facilitate a team workshop",
     "teamUnavailable": "Team sessions require Firebase setup — see README",
     "host": "Host a Session",
-    "join": "Join a Session"
+    "join": "Join a Session",
+    "about": {
+      "toggle": "About this exercise",
+      "title": "What is Moving Motivators?",
+      "body": "Moving Motivators is a Management 3.0 practice developed by Jurgen Appelo. It is built on the CHAMPFROGS model — ten intrinsic motivators that research suggests drive most of our engagement and satisfaction at work. Unlike external rewards (salary, perks), these are internal drivers: the things that make work feel meaningful and energizing, or deeply frustrating when absent.",
+      "how": "The exercise has two phases. First, rank the ten motivators by personal importance — most important on the right. Then describe a change you are facing (a new manager, a restructure, a move to remote work) and assess whether it positively or negatively affects each motivator. The result is an honest map of what matters to you and whether the change threatens it.",
+      "uses": "Use it for: personal reflection on what drives you, preparing for a career conversation, helping your team surface hidden concerns about a change, or building mutual understanding in a new team.",
+      "dismiss": "Got it"
+    }
   },
   "rank": {
     "title": "Rank Your Motivators",
-    "instruction": "Drag the cards to order them — most important on the left, least important on the right.",
+    "instruction": "Drag the cards to order them — most important on the right, least important on the left.",
     "next": "Continue to Change Assessment",
     "skip": "Skip — just explore rankings"
   },
@@ -37,7 +45,29 @@
     "neutral": "Unaffected",
     "insight": "The motivators that matter most to you and are negatively affected deserve the most attention.",
     "startOver": "Start Over",
-    "share": "Copy image"
+    "share": "Copy image",
+    "interpretation": {
+      "topTitle": "What drives you most",
+      "topDesc": "Your top motivators are your core drivers. Changes that threaten them will feel deeply uncomfortable — even if the change is objectively positive. Pay close attention to these in any conversation about this change.",
+      "bottomNote": "Your lower-ranked motivators matter less to you personally — but don't assume the same is true for your teammates. These differ widely across people.",
+      "positivePattern": "This change appears to align well with what drives you. That is a good sign — but check whether your teammates feel the same way.",
+      "negativePattern": "This change risks undermining motivators that are core to you. Name this explicitly in conversations with your manager or team — unexpressed concerns rarely get resolved.",
+      "mixedPattern": "This change has mixed impact on your motivators. Focus the conversation on the negatives: what would need to be true for those to become neutral or positive?",
+      "noChangeNote": "You have not assessed a change yet. Rank your motivators, then describe a change you are facing to see how it affects what matters most to you."
+    }
+  },
+  "facilitation": {
+    "title": "Facilitation Guide",
+    "intro": "How to run Moving Motivators with your team",
+    "steps": [
+      { "label": "Introduce CHAMPFROGS (2 min)", "text": "Briefly explain the 10 motivators. Emphasize that these are personal — there are no right or wrong answers. The goal is honest self-reflection, not impression management. People tend to rank what they think sounds best; encourage them to rank what is actually true for them." },
+      { "label": "Individual ranking (5–8 min)", "text": "Ask everyone to rank their motivators silently and independently. No discussion yet. Silence is important — social influence will bias results. Let participants use solo mode on their own device." },
+      { "label": "Reveal rankings (5 min)", "text": "Show individual results without comment. Let the team see where they agree and diverge. Ask: 'What surprises you about your own ranking? What surprises you about your colleagues?'" },
+      { "label": "Introduce the change (1 min)", "text": "State the change clearly and neutrally. Avoid framing it positively or negatively — for example say 'we are moving to a fully remote model' rather than 'we have an exciting opportunity to work from anywhere'." },
+      { "label": "Individual impact assessment (3–5 min)", "text": "Everyone marks each motivator ↑ positive / ↓ negative / – neutral, in silence. Remind participants to assess the actual likely impact, not the intended one." },
+      { "label": "Debrief (10–15 min)", "text": "Show the team results together. Ask: 'Which motivators show the most disagreement in impact? What does that tell us about how to introduce this change? What would need to change for the negatives to become neutral?'" }
+    ],
+    "tip": "The most valuable moment is usually when people see that the same change hits colleagues very differently. This builds empathy and surfaces concerns that would otherwise stay hidden until they become disengagement."
   },
   "team": {
     "pinLabel": "Session PIN",
@@ -48,6 +78,7 @@
     "joinPin": "Session PIN",
     "yourName": "Your name",
     "join": "Join",
+    "facilitationGuide": "Facilitation Guide",
     "phase": {
       "lobby": "Waiting for host to start",
       "ranking": "Rank your motivators",
@@ -56,17 +87,77 @@
     }
   },
   "motivators": {
-    "curiosity":   { "name": "Curiosity",   "desc": "I am motivated by learning and exploring new ideas." },
-    "honor":       { "name": "Honor",       "desc": "I am motivated by upholding my personal values." },
-    "acceptance":  { "name": "Acceptance",  "desc": "I am motivated by the approval of those around me." },
-    "mastery":     { "name": "Mastery",     "desc": "I am motivated by improving my competence and skills." },
-    "power":       { "name": "Power",       "desc": "I am motivated by having influence over what happens." },
-    "freedom":     { "name": "Freedom",     "desc": "I am motivated by independence and self-direction." },
-    "relatedness": { "name": "Relatedness", "desc": "I am motivated by close social bonds and teamwork." },
-    "order":       { "name": "Order",       "desc": "I am motivated by stability and a predictable environment." },
-    "goal":        { "name": "Goal",        "desc": "I am motivated by a higher purpose and sense of meaning." },
-    "status":      { "name": "Status",      "desc": "I am motivated by recognition and a good reputation." }
+    "curiosity": {
+      "name": "Curiosity",
+      "desc": "I am motivated by learning and exploring new ideas.",
+      "detail": "Curiosity is the desire to investigate and think about the world around you. People driven by curiosity want to explore ideas, learn new things, and ask 'why'. They are energized by problems without obvious answers and thrive in environments where experimentation is encouraged.",
+      "example": "Seeks out challenges outside their comfort zone, reads broadly across disciplines, and experiments with new approaches even when existing ones work fine.",
+      "reflection": "When was the last time you learned something at work that genuinely excited you? Does your current role give you enough room to explore?"
+    },
+    "honor": {
+      "name": "Honor",
+      "desc": "I am motivated by upholding my personal values.",
+      "detail": "Honor is the need to feel proud of your work and to act in accordance with your personal values. People motivated by honor care deeply about integrity — they need their work to reflect who they are. Assignments that conflict with their moral code feel draining, even when the compensation is good.",
+      "example": "Declines tasks that conflict with their values, speaks up about ethical concerns, and takes pride in doing things right even when cutting corners would go unnoticed.",
+      "reflection": "Does your current work reflect who you are and what you believe in? Are there parts of your role that feel at odds with your values?"
+    },
+    "acceptance": {
+      "name": "Acceptance",
+      "desc": "I am motivated by the approval of those around me.",
+      "detail": "Acceptance is the need to be approved of and valued by the people around you. People driven by acceptance are highly sensitive to how their contributions are perceived and are deeply motivated by belonging. They give their best when they feel genuinely included and appreciated.",
+      "example": "Checks in frequently for feedback, works hard to fit into team culture, and is visibly energized by praise and visibly deflated by criticism.",
+      "reflection": "Do you feel genuinely valued and accepted by your team? Do you know that your contributions are seen and appreciated?"
+    },
+    "mastery": {
+      "name": "Mastery",
+      "desc": "I am motivated by improving my competence and skills.",
+      "detail": "Mastery is the drive to improve your skills and become excellent at work that matters to you. People motivated by mastery are energized by growth and frustrated by stagnation. Repetitive work with no learning curve quickly becomes demotivating, no matter how comfortable the environment.",
+      "example": "Seeks stretch assignments, invests personal time in skill development, is energized by technical challenges, and is visibly uncomfortable doing work they feel they have already outgrown.",
+      "reflection": "Are you getting meaningfully better at something important through your current work? Do you feel like you are growing, or standing still?"
+    },
+    "power": {
+      "name": "Power",
+      "desc": "I am motivated by having influence over what happens.",
+      "detail": "Power is the need to have influence over the world around you — to lead, decide, and shape outcomes. This is not about dominance; it is about agency. People motivated by power want their voice to matter and their decisions to count. Being excluded from key decisions is deeply frustrating for them.",
+      "example": "Volunteers to lead initiatives, actively engages in decision-making, brings strong opinions to discussions, and is frustrated when their input is ignored or overridden.",
+      "reflection": "Do you have enough influence over the things that affect your work and your team? Do people listen and act when you speak?"
+    },
+    "freedom": {
+      "name": "Freedom",
+      "desc": "I am motivated by independence and self-direction.",
+      "detail": "Freedom is the need for independence and autonomy in how you work. People driven by freedom need space to define their own approach, schedule, and method. Micromanagement and rigid processes are deeply draining for them; autonomy and trust are energizing.",
+      "example": "Prefers self-directed work, defines their own process for reaching goals, and is uncomfortable with prescribed workflows or heavy oversight.",
+      "reflection": "Do you have enough freedom to work in the way that suits you best? Or do you feel over-managed and constrained?"
+    },
+    "relatedness": {
+      "name": "Relatedness",
+      "desc": "I am motivated by close social bonds and teamwork.",
+      "detail": "Relatedness is the need for social connections and a sense of belonging at work. People driven by relatedness are energized by their relationships with colleagues. Isolation — whether physical, remote, or social — is one of the most demotivating experiences for them.",
+      "example": "Initiates social contact, checks in on teammates, is energized by collaboration and pair work, and becomes noticeably less engaged during periods of isolation.",
+      "reflection": "Do you feel genuinely connected to the people you work with? Is there enough human warmth and collaboration in your daily work?"
+    },
+    "order": {
+      "name": "Order",
+      "desc": "I am motivated by stability and a predictable environment.",
+      "detail": "Order is the need for a stable, predictable, and well-structured environment. People driven by order prefer clear rules, consistent processes, and defined responsibilities. Chaos, ambiguity, and constant change are draining; clarity and structure are deeply reassuring.",
+      "example": "Creates documentation and checklists, prefers clear role definitions, is uncomfortable with undefined processes, and becomes anxious in highly ambiguous or rapidly changing environments.",
+      "reflection": "Is your work environment stable and predictable enough for you to do your best work? Or is there too much chaos and uncertainty?"
+    },
+    "goal": {
+      "name": "Goal",
+      "desc": "I am motivated by a higher purpose and sense of meaning.",
+      "detail": "Goal is the need for a clear sense of purpose — a higher meaning that makes work feel worthwhile beyond the immediate task. People driven by goal need to understand why their work matters. When that connection to purpose is lost, even interesting work can feel hollow.",
+      "example": "Connects daily work to the bigger picture, asks about organizational strategy and direction, is motivated by knowing their concrete impact, and becomes disengaged when work feels arbitrary or meaningless.",
+      "reflection": "Do you have a clear sense of purpose in your work? Does it feel meaningful beyond the immediate deliverable — do you know why it matters?"
+    },
+    "status": {
+      "name": "Status",
+      "desc": "I am motivated by recognition and a good reputation.",
+      "detail": "Status is the need for a respected position and recognition from others. People driven by status care about their professional standing — titles, seniority markers, and public recognition matter to them. This is a legitimate human need: to be seen as capable, respected, and professionally progressed.",
+      "example": "Is motivated by promotions, titles, and public acknowledgment; tracks career progression carefully; and wants their expertise and experience to be visibly recognized by peers and leadership.",
+      "reflection": "Do you feel appropriately recognized and respected for your professional standing? Is your expertise and contribution visible to the people who matter?"
+    }
   },
   "lang": { "en": "English", "ru": "Русский" },
-  "common": { "back": "Back" }
+  "common": { "back": "Back", "close": "Close", "learnMore": "Learn more" }
 }
