@@ -1,4 +1,6 @@
+import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import html2canvas from 'html2canvas'
 import type { MotivatorItem, MotivatorId } from '../types'
 import { getMotivatorMeta } from '../data/motivators'
 
@@ -144,13 +146,34 @@ function InterpretationPanel({ motivators, change, onInfo }: {
 
 export default function ResultsView({ motivators, change, onReset, onInfo }: Props) {
   const { t } = useTranslation()
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [copying, setCopying] = useState(false)
   const sorted = [...motivators].sort((a, b) => a.rank - b.rank)
+
+  async function handleShare() {
+    if (!containerRef.current || copying) return
+    setCopying(true)
+    try {
+      const canvas = await html2canvas(containerRef.current, { useCORS: true, backgroundColor: '#f9fafb' })
+      const blob = await new Promise<Blob | null>(resolve => canvas.toBlob(resolve, 'image/png'))
+      if (blob && navigator.clipboard?.write) {
+        await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
+      } else {
+        const link = document.createElement('a')
+        link.download = 'moving-motivators.png'
+        link.href = canvas.toDataURL('image/png')
+        link.click()
+      }
+    } finally {
+      setCopying(false)
+    }
+  }
   const positives = sorted.filter(m => m.impact === 'positive')
   const negatives = sorted.filter(m => m.impact === 'negative')
   const neutrals  = sorted.filter(m => m.impact === 'neutral')
 
   return (
-    <div className="flex flex-col gap-6 max-w-2xl">
+    <div ref={containerRef} className="flex flex-col gap-6 max-w-2xl">
       <div>
         <h2 className="text-2xl font-bold text-gray-900">{t('results.title')}</h2>
         {change && (
@@ -199,9 +222,18 @@ export default function ResultsView({ motivators, change, onReset, onInfo }: Pro
       {/* Interpretation */}
       <InterpretationPanel motivators={motivators} change={change} onInfo={onInfo} />
 
-      <button onClick={onReset} className="self-start px-6 py-2 text-sm font-medium border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-        ↩ {t('results.startOver')}
-      </button>
+      <div className="flex flex-wrap gap-3">
+        <button onClick={onReset} className="px-6 py-2 text-sm font-medium border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+          ↩ {t('results.startOver')}
+        </button>
+        <button
+          onClick={handleShare}
+          disabled={copying}
+          className="px-6 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors disabled:opacity-60"
+        >
+          {copying ? '…' : `📋 ${t('results.share')}`}
+        </button>
+      </div>
     </div>
   )
 }

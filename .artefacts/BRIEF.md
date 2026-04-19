@@ -10,7 +10,7 @@ Interactive [Management 3.0 Moving Motivators](https://management30.com/practice
 - [x] Team mode — host/join flow, PIN, Firebase realtime (`TeamSession.tsx`)
 - [x] English + Russian locales (`src/i18n/en.json`, `ru.json`)
 - [x] Responsive layout and touch-friendly drag-and-drop
-- [ ] Share / copy results as image — `results.share` exists in locales but no control in `src/components/ResultsView.tsx`
+- [x] Share / copy results as image — html2canvas captures results div to clipboard PNG (or downloads if clipboard API unavailable)
 - [ ] Optional insight line — `results.insight` unused in `src/`
 - [ ] Facilitation guide screen — `facilitation.*` strings unused
 - [ ] Team session phase copy — `team.phase.lobby` / `ranking` / `assessing`, `team.waitingFor`, `team.facilitationGuide` unused; only `team.phase.revealed` wired
@@ -27,6 +27,11 @@ Interactive [Management 3.0 Moving Motivators](https://management30.com/practice
 - Submodule `agentic-kit` remote: `bthos/agentic-kit` (see `.gitmodules`).
 
 ## Agent Log
+
+### 2026-04-19 — feat: share / copy results as image
+- Done: installed html2canvas; added `handleShare` in `ResultsView.tsx` — captures container div to PNG, writes to clipboard via ClipboardItem, falls back to download link; share button added beside Start Over with `t('results.share')` label and spinner state.
+- Remaining features: optional insight line (`results.insight` unused), facilitation guide screen (`facilitation.*` strings), team session phase copy (`team.phase.lobby/ranking/assessing`, `team.waitingFor`, `team.facilitationGuide`), home.team i18n key, lang toggle EN/RU → i18n keys.
+- Next task: Wire `results.insight` string as a hint paragraph below the interpretation panel in `src/components/ResultsView.tsx`; key exists in `en.json` and `ru.json`.
 
 ### 2026-04-19 — docs: BRIEF template (AGENT_AUTONOMOUS)
 
