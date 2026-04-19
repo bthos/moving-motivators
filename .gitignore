@@ -28,5 +28,6 @@ Thumbs.db
 
 # Agentic kit artefacts
 .artefacts/
+.agentic-kit/
 \"commit_msg.txt\"  
 commit_msg.txt  
