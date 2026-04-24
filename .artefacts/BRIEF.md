@@ -20,6 +20,9 @@ Interactive [Management 3.0 Moving Motivators](https://management30.com/practice
 ## Backlog
 
 <!-- Agent: append `needs-review` research issues here as `- [ ] #N …` -->
+- [ ] [#9] Feature: ES + BE locale support (suite standard)
+- [ ] [#10] Integration: Moving Motivators → Work Profiles (motivator snapshot)
+- [ ] [#11] Feature: QR code sharing for team sessions
 
 ## Tech notes
 
@@ -27,6 +30,11 @@ Interactive [Management 3.0 Moving Motivators](https://management30.com/practice
 - Submodule `agentic-kit` remote: `bthos/agentic-kit` (see `.gitmodules`).
 
 ## Agent Log
+
+### 2026-04-24 — research: market + integration opportunities
+- Done: created issue #9 (ES+BE locales — suite standard gap), #10 (Work Profiles integration via motivator snapshot export), #11 (QR code sharing for team sessions)
+- Waiting for human review on all three
+- Next task: check needs-review issues for human feedback (#9 ES+BE locales, #10 Work Profiles integration, #11 QR code sharing)
 
 ### 2026-04-20 — feat: wire all remaining unused i18n keys
 - Done: `results.insight` paragraph in ResultsView.tsx (shown when change assessed); `home.team` heading in HomeScreen.tsx team section; `lang.en`/`lang.ru` in App.tsx header toggle; `team.waitingFor` in host lobby when no participants; `team.phase.lobby` waiting screen for participants; `team.phase.ranking`/`assessing` phase badges in team-play.
